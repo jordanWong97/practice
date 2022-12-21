@@ -7,11 +7,10 @@ function getIncreasesPerWindow(arr) {
 
   let newSum = sum;
 
-  for (let i = 3; i < arr.length; i++) {
+  for (let i = 2; i < arr.length; i++) {
     newSum += arr[i] - arr[i - 2];
     if (Number(newSum) > Number(sum)) {
       count++;
-      sum = newSum;
     }
     sum = newSum;
   }

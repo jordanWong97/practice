@@ -5,7 +5,7 @@ var generateParenthesis = function (n) {
   const gen = (left, right, temp) => {
 
     if (left === n && right === n) {
-      r.push(temp);
+      result.push(temp);
       return;
     }
 

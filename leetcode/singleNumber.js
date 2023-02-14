@@ -1,24 +1,42 @@
-const singleNumber = function (nums) {
-  let freqs = freqCounter(nums);
+// const singleNumber = function (nums) {
+//   let freqs = freqCounter(nums);
 
-  for (let num of nums) {
-    if (freqs[num] === 1) {
-      return num;
-    }
-  }
-};
+//   for (let num of nums) {
+//     if (freqs[num] === 1) {
+//       return num;
+//     }
+//   }
+// };
 
-const freqCounter = (nums) => {
+// const freqCounter = (nums) => {
 
-  const freq = {};
+//   const freq = {};
 
-  for (let num of nums) {
-    if (freq[num]) {
-      freq[num]++;
+//   for (let num of nums) {
+//     if (freq[num]) {
+//       freq[num]++;
+//     } else {
+//       freq[num] = 1;
+//     }
+//   }
+
+//   return freq;
+// };
+
+//all in one function
+const singleNumber = (nums) => {
+
+  let counter = {};
+
+  for (let i = 0; i < nums.length; i++) {
+
+    if (counter[nums[i]]) {
+      delete counter[nums[i]];
     } else {
-      freq[num] = 1;
+      counter[nums[i]] = 1;
     }
+
   }
 
-  return freq;
+  return Object.keys(counter)[0];
 };
